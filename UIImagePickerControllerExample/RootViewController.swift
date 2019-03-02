@@ -31,7 +31,7 @@ class RootViewController: UIViewController {
     }()
     
     @objc fileprivate func profileImageButtonTapped() {
-        print("Tapped button")
+        print("Tapped profile image button")
     }
 
     override func viewDidLoad() {
