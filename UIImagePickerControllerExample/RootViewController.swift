@@ -62,3 +62,34 @@ class RootViewController: UIViewController {
 
 }
 
+extension RootViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func showChooseSourceTypeAlertController() {
+        let photoLibraryAction = UIAlertAction(title: "Choose a Photo", style: .default) { (action) in
+            self.showImagePickerController(sourceType: .photoLibrary)
+        }
+        let cameraAction = UIAlertAction(title: "Take a New Photo", style: .default) { (action) in
+            self.showImagePickerController(sourceType: .camera)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        SparkService.showAlert(style: .actionSheet, title: nil, message: nil, actions: [photoLibraryAction, cameraAction, cancelAction], completion: nil)
+    }
+    
+    func showImagePickerController(sourceType: UIImagePickerController.SourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        imagePickerController.sourceType = sourceType
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            self.profileImageButton.setImage(editedImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            self.profileImageButton.setImage(originalImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        }
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+

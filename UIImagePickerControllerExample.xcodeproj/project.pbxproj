@@ -12,6 +12,7 @@
 		C98E2540222A6BC500DADE8C /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E253F222A6BC500DADE8C /* RootViewController.swift */; };
 		C98E2542222A6BC600DADE8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C98E2541222A6BC600DADE8C /* Assets.xcassets */; };
 		C98E2545222A6BC600DADE8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98E2543222A6BC600DADE8C /* LaunchScreen.storyboard */; };
+		C98E254D222A702100DADE8C /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98E254C222A702100DADE8C /* AlertService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		C98E2541222A6BC600DADE8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C98E2544222A6BC600DADE8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C98E2546222A6BC600DADE8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C98E254C222A702100DADE8C /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		DDECDA2400E2AADD1F87833C /* Pods-UIImagePickerControllerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIImagePickerControllerExample.debug.xcconfig"; path = "Target Support Files/Pods-UIImagePickerControllerExample/Pods-UIImagePickerControllerExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,7 +54,6 @@
 				DDECDA2400E2AADD1F87833C /* Pods-UIImagePickerControllerExample.debug.xcconfig */,
 				70DDB2DE4CCD95963CF53641 /* Pods-UIImagePickerControllerExample.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -79,6 +80,7 @@
 			children = (
 				C98E253D222A6BC500DADE8C /* AppDelegate.swift */,
 				C98E253F222A6BC500DADE8C /* RootViewController.swift */,
+				C98E254C222A702100DADE8C /* AlertService.swift */,
 				C98E2541222A6BC600DADE8C /* Assets.xcassets */,
 				C98E2543222A6BC600DADE8C /* LaunchScreen.storyboard */,
 				C98E2546222A6BC600DADE8C /* Info.plist */,
@@ -206,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C98E2540222A6BC500DADE8C /* RootViewController.swift in Sources */,
+				C98E254D222A702100DADE8C /* AlertService.swift in Sources */,
 				C98E253E222A6BC500DADE8C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
