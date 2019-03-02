@@ -32,6 +32,7 @@ class RootViewController: UIViewController {
     
     @objc fileprivate func profileImageButtonTapped() {
         print("Tapped button")
+        showChooseSourceTypeAlertController()
     }
 
     override func viewDidLoad() {
@@ -71,7 +72,7 @@ extension RootViewController: UIImagePickerControllerDelegate, UINavigationContr
             self.showImagePickerController(sourceType: .camera)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        SparkService.showAlert(style: .actionSheet, title: nil, message: nil, actions: [photoLibraryAction, cameraAction, cancelAction], completion: nil)
+        AlertService.showAlert(style: .actionSheet, title: nil, message: nil, actions: [photoLibraryAction, cameraAction, cancelAction], completion: nil)
     }
     
     func showImagePickerController(sourceType: UIImagePickerController.SourceType) {
