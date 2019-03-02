@@ -85,9 +85,9 @@ extension RootViewController: UIImagePickerControllerDelegate, UINavigationContr
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            self.profileImageButton.setImage(editedImage.withRenderingMode(.alwaysOriginal), for: .normal)
+            self.profileImageView.image = editedImage.withRenderingMode(.alwaysOriginal)
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            self.profileImageButton.setImage(originalImage.withRenderingMode(.alwaysOriginal), for: .normal)
+            self.profileImageView.image = originalImage.withRenderingMode(.alwaysOriginal)
         }
         dismiss(animated: true, completion: nil)
     }
