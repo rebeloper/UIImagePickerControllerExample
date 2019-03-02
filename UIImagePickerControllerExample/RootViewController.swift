@@ -31,7 +31,7 @@ class RootViewController: UIViewController {
     }()
     
     @objc fileprivate func profileImageButtonTapped() {
-        print("Tapped profile image button")
+        showImagePickerControllerActionSheet()
     }
 
     override func viewDidLoad() {
@@ -61,3 +61,38 @@ class RootViewController: UIViewController {
     }
 
 }
+
+extension RootViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func showImagePickerControllerActionSheet() {
+        let photoLibraryAction = UIAlertAction(title: "Choose from Library", style: .default) { (action) in
+            self.showImagePickerController(sourceType: .photoLibrary)
+        }
+        let cameraAction = UIAlertAction(title: "Take from Camera", style: .default) { (action) in
+            self.showImagePickerController(sourceType: .camera)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        AlertService.showAlert(style: .actionSheet, title: "Choose your image", message: nil, actions: [photoLibraryAction, cameraAction, cancelAction], completion: nil)
+    }
+    
+    func showImagePickerController(sourceType: UIImagePickerController.SourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        imagePickerController.sourceType = sourceType
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            profileImageView.image = editedImage
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            profileImageView.image = originalImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+}
+
